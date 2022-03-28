@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cstdlib>
+#include <locale>
 
 using namespace std;
 
@@ -8,7 +9,13 @@ typedef struct no {
     struct no *prox;
 }Celula;
 
+Celula *inserir(int valor, Celula *lista);
+void exibir_lista(Celula *lista);
+int contar(Celula *lista);
+
+
 int main(){
+    setlocale(LC_ALL, "Portuguese");
     
     Celula *lista = NULL;
 
@@ -19,7 +26,7 @@ int main(){
 
     exibir_lista(lista);
 
-    cout << "A lista contém " << contar(lista) << " elementos\n";
+    cout << "\n\nA lista contém " << contar(lista) << " elementos" << endl;
 
     return 1;
 }
@@ -63,9 +70,32 @@ Celula *inserir(int valor, Celula *lista){
 }
 
 void exibir_lista(Celula *lista){
+    if (!lista){ 
+        cout << "Lista vazia\n";
+        return;
+    }
+
+    Celula *p;
+
+    for (p = lista; p ; p = p->prox){
+        cout << "[" << p->dado << "] ";
+    }
 
 }
 
-int contar(Celula *lista){
 
+int contar(Celula *lista){
+    if (!lista){ 
+        cout << "Lista vazia\n";
+        return 0;
+    }
+
+    Celula *p;
+    int contador = 0;
+
+    for (p = lista; p ; p = p->prox){
+        contador++;
+    }
+
+    return contador;
 }
