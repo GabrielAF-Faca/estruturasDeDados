@@ -21,6 +21,9 @@ void popular_do_arquivo(Celula **lista, Celula **pilha);
 
 
 int contarElementos(Celula *estrutura);
+int menorValorLista(Celula *lista);
+int maiorValorLista(Celula *lista);
+int calcular_moda(Celula *estrutura, int ignore = 0);
 
 
 float calcular_mediana(Celula *estrutura);
@@ -37,15 +40,20 @@ int main(){
 
     exibir(lista);
     printf("\n");
-    //exibir(pilha);
+    exibir(pilha);
 
     cout << "Número de elementos na lista: " << contarElementos(lista) << endl;
-    //cout << "Número de elementos na pilha: " << contarElementos(pilha) << endl;
+    cout << "Número de elementos na pilha: " << contarElementos(pilha) << endl;
 
-    //cout << endl << "Média dos elementos da lista: " << calcularMedia(lista) << endl;
-    //cout << "Média dos elementos da pilha: " << calcularMedia(pilha) << endl;
+    cout << endl << "Média dos elementos da lista: " << calcularMedia(lista) << endl;
+    cout << "Média dos elementos da pilha: " << calcularMedia(pilha) << endl;
 
     cout << "Mediana dos elementos da lista: " << calcular_mediana(lista) << endl;
+    cout << endl << "Maior valor da lista: " << maiorValorLista(lista) << endl;
+
+    int moda = calcular_moda(lista);
+
+    cout << endl << "Números que mais repetem na lista: " << moda << " e " << calcular_moda(lista, moda) << endl;
 
 
 
@@ -104,7 +112,6 @@ void exibir_lista(Celula *lista){
     }
 
 }
-
 
 Celula *pilha_inserir(int valor, Celula *pilha){
     Celula *novo = (Celula *)malloc(sizeof(Celula));
@@ -231,4 +238,55 @@ float calcular_mediana(Celula *estrutura){
 
     return (ehPar)?((p->dado + p->prox->dado)/2):(p->dado);
 
+}
+
+int menorValorLista(Celula *lista){
+    if (!lista) return 0;
+
+    return lista->dado;
+
+}
+
+int maiorValorLista(Celula *lista){
+    if (!lista) return 0;
+
+    Celula *p;
+    
+    int valor;
+
+    for (p = lista; p ; p = p->prox){
+        valor = p->dado;
+    }
+
+    return valor;
+
+}
+
+int calcular_moda(Celula *estrutura, int ignore){
+    if (!estrutura) return 0;
+
+    Celula *p;
+
+    int moda;
+    int count = 1;
+    int countMode = 1;
+    int number = estrutura->dado;
+
+    moda = number;
+    
+    for(p = estrutura->prox; p ; p = p->prox){
+        if (p->dado == number && number!=ignore){
+            ++count;
+        }else{
+            if (count > countMode){
+                countMode = count;
+                moda = number;
+            }
+
+            count = 1;
+            number = p->dado;
+        }
+    }
+
+    return moda;
 }
