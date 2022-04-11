@@ -108,31 +108,38 @@ Celula *lista_excluir_todos(int valor, Celula *lista){
 }
 
 void lista_exibir(Celula *lista, int break_line = 0){
-    if (!lista){ 
-        cout << "Lista vazia\n";
-        return;
-    }
+  if (!lista){ 
+      cout << "Lista vazia\n";
+      return;
+  }
 
-    Celula *p;
+  Celula *p;
 
-    for (p = lista; p ; p = p->prox){
-        cout << "[" << p->dado << "] " << ((break_line != 0) ? "\n" : "");
-    }
+  for (p = lista; p ; p = p->prox){
+      cout << "[" << p->dado << "] " << ((break_line != 0) ? "\n" : "");
+  }
 
 }
 
 int lista_contar(Celula *lista){
-    if (!lista){ 
-        cout << "Lista vazia\n";
-        return 0;
-    }
+  if (!lista){ 
+      cout << "Lista vazia\n";
+      return 0;
+  }
 
-    Celula *p;
-    int contador = 0;
+  Celula *p;
+  int contador = 0;
 
-    for (p = lista; p ; p = p->prox){
-        contador++;
-    }
+  for (p = lista; p ; p = p->prox){
+      contador++;
+  }
 
-    return contador;
+  return contador;
+}
+
+Celula *lista_podar(Celula *lista){
+  if (!lista){
+    cout << "Lista vazia\n";
+    return 0;
+  }
 }
