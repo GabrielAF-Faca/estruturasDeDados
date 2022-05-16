@@ -5,34 +5,18 @@
 
 using namespace std;
 
+
 Celula *lista_excluir_recursivo(int valor, Celula *lista) {
-    if (!lista) {
-        cout << "Lista vazia. Operação cancelada!" << endl;
-        return lista;
-    }
-
-    if (lista->dado != valor){
-        lista->prox = lista_excluir_recursivo(valor, lista->prox);
-        
-    } else {
-
-        if (p == lista) {
-                lista = lista->prox;
-
-            } else if (!p->prox) { //eh o ultimo
-                pR->prox = NULL;
-
-            } else { //esta entre celulas
-                pR->prox = p->prox;
-
-            }
-
-            free(p);
-            return lista;
+    if (lista) {
+        if (lista->dado == valor){
+            Celula *oRetorno = lista->prox;
+            free(lista);
+            return oRetorno;
+        } else {
+            lista->prox = lista_excluir_recursivo(valor, lista->prox);
         }
-
-    }
-
+    } 
+    return lista;        
 }
 
 
