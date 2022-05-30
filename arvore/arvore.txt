@@ -2,6 +2,12 @@
 
 ##altura da arvore##
 
+typedef struct no{
+    int dado;
+    struct no *esq;
+    struct no *dir;
+}Arvore;
+
 int altura(Arvore *r){
     if(r){
         int altEsq = altura(r->esq);
@@ -14,4 +20,20 @@ int altura(Arvore *r){
         }
     }
     return 0;
+}
+
+Arvore *localizar(int valor, Arvore *r){
+    if(r){
+        if (r->dado == valor){
+            return r;
+        }
+
+        if (r->dado < valor){
+            return localizar(valor, r->esq);
+        } else {
+            return localizar(valor, r->dir);
+        }
+
+    }
+    return NULL;
 }
