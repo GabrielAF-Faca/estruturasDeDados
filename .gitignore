@@ -2,4 +2,8 @@
 .o
 .vs
 .vscode
+<<<<<<< HEAD
 .DS_Store
+=======
+.DS_Store
+>>>>>>> 9acf53368fe3953a5e0bc652b22ac207f2d81560
