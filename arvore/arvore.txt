@@ -1,0 +1,17 @@
+
+
+##altura da arvore##
+
+int altura(Arvore *r){
+    if(r){
+        int altEsq = altura(r->esq);
+        int altDir = altura(r->dir);
+
+        if (altEsq > altDir) {
+            return 1 + altEsq;
+        } else {
+            return 1 + altDir;
+        }
+    }
+    return 0;
+}
