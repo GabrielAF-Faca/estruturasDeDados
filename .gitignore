@@ -1,6 +1,5 @@
-.exe
+*.exe
 .o
 .vs
 .vscode
 .DS_Store
-.exe
