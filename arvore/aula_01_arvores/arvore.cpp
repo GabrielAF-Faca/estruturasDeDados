@@ -1,7 +1,8 @@
 #include <iostream>
 #include <ctime>
 #include <locale>
-#include "arvore.h"
+#include "../arvore.h"
+
 
 using namespace std;
 
@@ -9,39 +10,41 @@ int main(){
     setlocale(LC_ALL, "Portuguese");
     
     Arvore *raiz = NULL;
-    ArvoreString *raiz2 = NULL;
 
-    raiz2 = arvore_inserir_string("Gabriel", raiz2);
-    raiz2 = arvore_inserir_string("Arthur", raiz2);
-    raiz2 = arvore_inserir_string("Bitas", raiz2);
-
-    arvore_exibir_string(raiz2);
 
     raiz = arvore_inserir(40, raiz);
-    raiz = arvore_inserir(20, raiz);
-    raiz = arvore_inserir(70, raiz);
-    raiz = arvore_inserir(25, raiz);
     raiz = arvore_inserir(50, raiz);
+    raiz = arvore_inserir(60, raiz);
+    raiz = arvore_inserir(70, raiz);
+    raiz = arvore_inserir(80, raiz);
+    raiz = arvore_inserir(90, raiz);
     raiz = arvore_inserir(100, raiz);
-    raiz = arvore_inserir(24, raiz);
+    raiz = arvore_inserir(110, raiz);
+
+
+    raiz = arvore_excluir(80, raiz);
+    
 
     cout << endl << endl;
 
-    arvore_exibir(raiz);
+    arvore_exibir(raiz); 
     
     cout << endl << endl;
 
+    /*
     cout << "A arvore possui altura: " << arvore_altura(raiz) << endl;
     cout << "A arvore possui " << arvore_contar_galhos(raiz) << " galhos" << endl;
     cout << "A arvore possui " << arvore_contar_folhas(raiz) << " folhas" << endl;
 
+
+    
     int teste = 20;
 
     cout << "O numero " << teste << " esta no nivel " << arvore_localizar_nivel(teste, raiz) << endl;
 
     cout << "O menor numero da arvore e: " << arvore_menor_elemento(raiz)->dado << endl;
     cout << "O maior numero da arvore e: " << arvore_maior_elemento(raiz)->dado << endl;
-
+    */
 
     return 1;
 }
